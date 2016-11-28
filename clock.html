@@ -8,19 +8,18 @@
 
 //Clock made by Joe Masar
 //Example From w3 Schools
-
 function startTime() {
 	//$("#snoop").hide();
     var time = new Date();
     var h = time.getHours();
     var m = time.getMinutes();
     var s = time.getSeconds();
-    var x;
+    var x,color;
     x = AMorPM(h);
     h = from24HR(h);
     m = checkFormat(m);
     s = checkFormat(s);
-	var color = colorSwitch(h);
+	
 
 	//Snoop
 	if ((h == 4) && (m == 20)){
@@ -31,6 +30,14 @@ function startTime() {
 	else {
 		$("#snoop").hide();
 		$("#load").hide();
+	}
+	
+	//11:11
+	if ((h == 11) && (m == 11)){
+		color = getRandomColor();
+	}
+	else{
+		color = colorSwitch(h);
 	}
 	
 	//Changing font color
@@ -81,6 +88,17 @@ function AMorPM(i) {
         i = "AM";
     }
     return i;
+}
+
+//Random color generator
+//http://stackoverflow.com/questions/1484506/random-color-generator-in-javascript
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
 }
 
 //Set the color based on the hour
