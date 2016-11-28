@@ -1,0 +1,41 @@
+#time {
+  background  : black;
+  color       : white;
+  text-align  : center;
+  font-size   : 800%;
+  length      : 100px; 
+}
+
+#date {
+  padding-top : 5%;
+  background  : black;
+  color       : white;
+  text-align  : center;
+  font-size   : 400%;
+  length      : 100px; 
+}
+
+body { 
+  background  : black;
+  margin      : auto;
+}
+
+#awcc1476056257580 {
+  padding-top : 10%;
+  margin      : auto;
+  width       : 50%;
+}
+
+#center {
+  margin       : auto;
+  padding-top  : 5%;
+}
+
+#snoop {
+  text-align  : center;
+}
+
+#load {
+  padding-bottom : 100%;
+  color          : white;
+}
