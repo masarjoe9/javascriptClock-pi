@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<title>Clock/Weather</title>
+<head>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+
+//Clock made by Joe Masar
+//Example From w3 Schools
+function startTime() {
+	//$("#snoop").hide();
+    var time = new Date();
+    var h = time.getHours();
+    var m = time.getMinutes();
+    var s = time.getSeconds();
+    var x,color;
+    x = AMorPM(h);
+    h = from24HR(h);
+    m = checkFormat(m);
+    s = checkFormat(s);
+	
+
+	//Snoop
+	if ((h == 4) && (m == 20)){
+		$("div").hide();
+		$("#load").hide();
+		$("#snoop").show();
+	}
+	else {
+		$("#snoop").hide();
+		$("#load").hide();
+	}
+	
+	//11:11
+	if ((h == 11) && (m == 11)){
+		color = getRandomColor();
+	}
+	else{
+		color = colorSwitch(h);
+	}
+	
+	//Changing font color
+	var hourTime = h + ":" + m + ":" + s + " " + x;
+	var dateTime = time.toDateString();
+	
+	//Print
+    document.getElementById('time').innerHTML = hourTime.fontcolor(color);
+	document.getElementById('date').innerHTML = dateTime.fontcolor(color);
+	
+
+	//this will refresh the weather and fix the widget at 420
+	if (((m == 0) && (s == 0)) || ((m == 21) && (s == 0)) || ((m == 30) && (s == 0))){
+		location.reload();
+	}
+	time,h,m,s,x,color = null;
+    setTimeout(startTime, 500);
+}
+
+//Add a zero to numbers under ten
+function checkFormat(i) {
+    var i;
+	if (i < 10) {
+        i = "0" + i;
+    } 
+    return i;
+}
+
+//Used to convert 24 to 12 hour format
+function from24HR(i){
+    var i;
+	if (i > 12) {
+        i = i - 12;
+    }
+	if (i == 0){
+		i = 12;
+	}
+    return i;
+}
+
+//Used to add AM or PM from 12 hour clock
+function AMorPM(i) {
+    var i;
+	if (i > 12) {
+        i = "PM";
+    }
+    else{
+        i = "AM";
+    }
+    return i;
+}
+
+//Random color generator
+//http://stackoverflow.com/questions/1484506/random-color-generator-in-javascript
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+//Set the color based on the hour
+function colorSwitch(hour) {
+	switch(hour){
+		case 1  :
+			return "red";
+		case 2  : 
+			return "green";
+		case 3  : 
+			return "blue";
+		case 4  : 
+			return "orange";
+		case 5  :
+			return "purple";
+		case 6  :
+			return "grey";
+		case 7  :
+			return "turquoise";
+		case 8  :
+			return "yellow";
+		case 9  :
+			return "magenta";
+		case 10 :
+			return "white";
+		case 11 :
+			return "lime";
+		case 12 :
+			return "yellow";
+	}
+}
+
+</script>
+</head>
+
+<body onload="startTime()">
+
+<div id="load">loading...</div>
+
+<p id="snoop"><img src="snoop.gif" alt="HTML5 Icon" width="80%" height="80%"> </p>
+
+<div id="center">
+
+<div id="time"></div>
+
+<div id="date"></div>
+
+<a href="http://www.accuweather.com/en/us/cleveland-oh/44134/weather-forecast/18920_pc" class="aw-widget-legal">
+
+</a><div id="awcc1476056257580" class="aw-widget-current"  data-locationkey="18920_PC" data-unit="f" data-language="en-us" data-useip="false" data-uid="awcc1476056257580"></div><script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
+
+</div>
+
+</body>
+</html>
+
