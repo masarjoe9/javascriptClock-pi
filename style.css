@@ -1,5 +1,4 @@
 #time {
-  padding-top : 2%;
   background  : black;
   color       : white;
   text-align  : center;
@@ -8,8 +7,8 @@
 }
 
 #date {
-  padding-top : 5%;
-  background  : black;
+  padding-top : 2.5%;
+  background  : lack;
   color       : white;
   text-align  : center;
   font-size   : 400%;
@@ -22,7 +21,7 @@ body {
 }
 
 #awcc1476056257580 {
-  padding-top : 12.5%;
+  padding-top : 10.5%;
   margin      : auto;
   width       : 50%;
 }
@@ -39,6 +38,5 @@ body {
 #load {
   padding-bottom : 100%;
   color          : white;
-  text-align     : center;
+  text-align  : center;
 }
-
