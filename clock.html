@@ -5,7 +5,6 @@
 	<link rel="stylesheet" href="style.css">
 	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script>
-
 //Clock made by Joe Masar
 //Example From w3 Schools
 function startTime() {
@@ -20,7 +19,6 @@ function startTime() {
     m = checkFormat(m);
     s = checkFormat(s);
 	
-
 	//Snoop
 	if ((h == 4) && (m == 20)){
 		$("div").hide();
@@ -48,7 +46,6 @@ function startTime() {
     document.getElementById('time').innerHTML = hourTime.fontcolor(color);
 	document.getElementById('date').innerHTML = dateTime.fontcolor(color);
 	
-
 	//this will refresh the weather and fix the widget at 420
 	if (((m == 0) && (s == 0)) || ((m == 21) && (s == 0)) || ((m == 30) && (s == 0))){
 		location.reload();
@@ -56,7 +53,6 @@ function startTime() {
 	time,h,m,s,x,color = null;
     setTimeout(startTime, 500);
 }
-
 //Add a zero to numbers under ten
 function checkFormat(i) {
     var i;
@@ -65,7 +61,6 @@ function checkFormat(i) {
     } 
     return i;
 }
-
 //Used to convert 24 to 12 hour format
 function from24HR(i){
     var i;
@@ -77,11 +72,10 @@ function from24HR(i){
 	}
     return i;
 }
-
 //Used to add AM or PM from 12 hour clock
 function AMorPM(i) {
     var i;
-	if (i > 12) {
+	if (i > 11) {
         i = "PM";
     }
     else{
@@ -89,7 +83,6 @@ function AMorPM(i) {
     }
     return i;
 }
-
 //Random color generator
 //http://stackoverflow.com/questions/1484506/random-color-generator-in-javascript
 function getRandomColor() {
@@ -100,7 +93,6 @@ function getRandomColor() {
     }
     return color;
 }
-
 //Set the color based on the hour
 function colorSwitch(hour) {
 	switch(hour){
@@ -130,7 +122,6 @@ function colorSwitch(hour) {
 			return "yellow";
 	}
 }
-
 </script>
 </head>
 
@@ -154,4 +145,3 @@ function colorSwitch(hour) {
 
 </body>
 </html>
-
